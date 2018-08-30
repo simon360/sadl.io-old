@@ -1,3 +1,3 @@
 import "./color";
 // import "./space";
-// import "./type";
+import "./type";

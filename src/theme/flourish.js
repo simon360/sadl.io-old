@@ -1,7 +1,7 @@
-import { unitless } from "./space";
+import space from "./space";
 
 export default {
   rounded: {
-    standard: `${unitless.half}rem`
+    standard: space.quarter
   }
 };

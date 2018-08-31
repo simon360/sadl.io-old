@@ -8,6 +8,8 @@ export const unitless = {
   one,
 
   // Smaller
+  eighth: one / 8,
+  quarter: one / 4,
   half: one / 2,
   threeQuarters: (3 * one) / 4,
 
@@ -17,7 +19,5 @@ export const unitless = {
   three: 3 * one,
   four: 4 * one
 };
-
-console.log(unitless);
 
 export default mapValues(unitless, value => `${value}rem`);

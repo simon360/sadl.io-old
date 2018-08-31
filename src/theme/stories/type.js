@@ -7,53 +7,10 @@ import { storiesOf } from "@storybook/react";
 import color from "../color";
 import type from "../type";
 
-const HugeHeading = styled.h1`
-  color: ${color.primary};
-  font-size: ${type.size.huge};
-  font-weight: ${type.weight.bold};
-  line-height: ${type.lineHeights.squashed};
-  margin: 0;
-`;
-
-const VeryBigHeading = styled.h2`
-  color: ${color.primary};
-  font-size: ${type.size.veryBig};
-  font-weight: ${type.weight.bold};
-  line-height: ${type.lineHeights.squashed};
-  margin: 0;
-`;
-
-const BiggerHeading = styled.h2`
-  color: ${color.primary};
-  font-size: ${type.size.bigger};
-  font-weight: ${type.weight.normal};
-  line-height: ${type.lineHeights.normal};
-  margin: 0;
-`;
-
-const BigHeading = styled.h2`
-  color: ${color.primary};
-  font-size: ${type.size.big};
-  font-weight: ${type.weight.normal};
-  line-height: ${type.lineHeights.normal};
-  margin: 0;
-`;
-
-const NormalText = styled.p`
-  color: ${color.textPrimary};
-  font-size: ${type.size.standard};
-  line-height: ${type.lineHeights.normal};
-  margin: 0;
-`;
-
-const SmallText = styled.small`
-  color: ${color.textPrimary};
-  font-size: ${type.size.small};
-  font-variant: small-caps;
-  line-height: ${type.lineHeights.normal};
-  margin: 0;
-  text-transform: lowercase;
-`;
+import { HugeHeading } from "../../components/Heading";
+import Text from "../../components/Text";
+import Section from "../../components/Section";
+import Spacing from "../../components/Spacing";
 
 const ScrollableArea = styled.div`
   overflow: auto;
@@ -68,15 +25,24 @@ const TextDemo = styled.p`
 
 const text = "The quick brown fox jumped over the lazy dog.";
 
-storiesOf("Theme/Type", module).add("Showcase", () => (
-  <div>
-    <HugeHeading>Typography</HugeHeading>
-    <NormalText>
-      Text should always be set in Source Sans Pro. The base font size is 16px,
-      with a type scale of 1.333. Boldness should be used for emphasis, and for
-      headings at levels 1 and 2. Italics should be used sparingly in text, for
-      lighter emphasis.
-    </NormalText>
+storiesOf("Theme|Type", module).add("Showcase", () => (
+  <Section>
+    <Spacing bottom="one">
+      <HugeHeading>Typography</HugeHeading>
+    </Spacing>
+
+    <Spacing bottom="oneAndHalf">
+      <Text>
+        Text should always be set in Source Sans Pro. The base font size is
+        16px, with a type scale of 1.333. Boldness should be used for emphasis,
+        and for headings at levels 1 and 2. Italics should be used sparingly in
+        text, for lighter emphasis.
+      </Text>
+      <Text>
+        The text primitives should only be used to build additional components,
+        based around more concrete typographical constructs.
+      </Text>
+    </Spacing>
 
     <ScrollableArea>
       <TextDemo
@@ -110,5 +76,5 @@ storiesOf("Theme/Type", module).add("Showcase", () => (
         {text}
       </TextDemo>
     </ScrollableArea>
-  </div>
+  </Section>
 ));

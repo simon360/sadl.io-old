@@ -21,5 +21,6 @@ export default {
   weight: {
     normal: 400,
     bold: 700
-  }
+  },
+  family: '"Source Sans Pro", sans-serif'
 };

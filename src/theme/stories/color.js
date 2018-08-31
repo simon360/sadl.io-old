@@ -2,18 +2,21 @@ import React from "react";
 import styled from "styled-components";
 
 import { storiesOf } from "@storybook/react";
-// import { linkTo } from "@storybook/addon-links";
 
 import animation from "../animation";
 import color from "../color";
 import flourish from "../flourish";
 import space from "../space";
 
-import "normalize.css/normalize.css";
+import { HugeHeading } from "../../components/Heading";
+import Section from "../../components/Section";
+import Spacing from "../../components/Spacing";
+import Text from "../../components/Text";
 
 const Wrapper = styled.ul`
   display: flex;
   list-style: none;
+  padding-left: 0;
 `;
 
 const Color = styled.ul`
@@ -22,6 +25,7 @@ const Color = styled.ul`
   height: ${space.four};
   margin-right: ${space.one};
   margin-bottom: calc(${space.one} + ${space.two});
+  margin-left: 0;
   padding-left: 0;
   position: relative;
   width: ${space.four};
@@ -48,9 +52,24 @@ const Color = styled.ul`
   }
 `;
 
-storiesOf("Theme/Color", module).add("Showcase", () => (
-  <Wrapper>
-    <Color color={color.primary} name="primary" />
-    <Color color={color.primaryLighter} name="primaryLighter" />
-  </Wrapper>
+storiesOf("Theme|Color", module).add("Color", () => (
+  <Section>
+    <Spacing bottom="one">
+      <HugeHeading>Color</HugeHeading>
+    </Spacing>
+
+    <Spacing bottom="oneAndHalf">
+      <Text>
+        The color palette is intentionally limited. The primary color should be
+        used to add a bit of fourish, and for added emphasis.
+      </Text>
+      <Text>
+        Where additional color is desired, the use of photography is encouraged.
+      </Text>
+    </Spacing>
+    <Wrapper>
+      <Color color={color.primary} name="primary" />
+      <Color color={color.primaryLighter} name="primaryLighter" />
+    </Wrapper>
+  </Section>
 ));

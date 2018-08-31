@@ -3,7 +3,7 @@ import styled from "styled-components";
 import theme from "../../theme";
 
 const backgroundColor = props =>
-  ({ primary: theme.color.white, secondary: theme.color.primaryLighter }[
+  ({ primary: theme.color.onDark.white, secondary: theme.color.primaryLighter }[
     props.type || "primary"
   ]);
 
@@ -13,7 +13,7 @@ const borderColor = props =>
   ]);
 
 const textColor = props =>
-  ({ primary: theme.color.primary, secondary: theme.color.white }[
+  ({ primary: theme.color.primary, secondary: theme.color.onDark.white }[
     props.type || "primary"
   ]);
 
@@ -31,6 +31,6 @@ export default styled.button`
   :focus {
     background-color: ${theme.color.primary};
     border: ${theme.space.eighth} solid ${theme.color.primary};
-    color: ${theme.color.white};
+    color: ${theme.color.onDark.white};
   }
 `;

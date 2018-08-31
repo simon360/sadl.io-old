@@ -14,14 +14,9 @@ storiesOf("Components|Button", module)
     </Section>
   ))
   .add("secondary", () => (
-    <Button onClick={action("clicked")} type="secondary">
-      Hello Button
-    </Button>
+    <Section>
+      <Button onClick={action("clicked")} type="secondary">
+        Hello Button
+      </Button>
+    </Section>
   ));
-// .add("with some emoji", () => (
-//   <Button onClick={action("clicked")}>
-//     <span role="img" aria-label="so cool">
-//       😀 😎 👍 💯
-//     </span>
-//   </Button>
-// ));

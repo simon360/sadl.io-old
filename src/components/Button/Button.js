@@ -33,4 +33,9 @@ export default styled.button`
     border: ${theme.space.eighth} solid ${theme.color.primary};
     color: ${theme.color.onDark.white};
   }
+
+  :active {
+    background-color: ${theme.color.primaryDarker};
+    border: ${theme.space.eighth} solid ${theme.color.primaryDarker};
+  }
 `;

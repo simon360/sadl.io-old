@@ -13,6 +13,8 @@ import Section from "../../components/Section";
 import Spacing from "../../components/Spacing";
 import Text from "../../components/Text";
 
+const { onDark, ...onLight } = color;
+
 const Wrapper = styled.ul`
   display: flex;
   list-style: none;
@@ -20,8 +22,11 @@ const Wrapper = styled.ul`
 `;
 
 const Color = styled.ul`
+  border: ${props =>
+    props.inverse ? `${space.eighth} solid ${color.primary}` : "none"};
   background-color: ${props => props.color};
   border-radius: ${flourish.rounded.standard};
+  box-sizing: border-box;
   height: ${space.four};
   margin-right: ${space.one};
   margin-bottom: calc(${space.one} + ${space.two});
@@ -34,7 +39,7 @@ const Color = styled.ul`
     align-items: center;
     background-color: rgba(255, 255, 255, 0.5);
     content: '${props => props.name}';
-    color: ${props => props.color};
+    color: ${props => (props.inverse ? color.primary : props.color)};
     display: flex;
     height: ${space.one};
     justify-content: center;
@@ -68,8 +73,12 @@ storiesOf("Theme|Color", module).add("Color", () => (
       </Text>
     </Spacing>
     <Wrapper>
-      <Color color={color.primary} name="primary" />
-      <Color color={color.primaryLighter} name="primaryLighter" />
+      {Object.entries(onLight).map(([key, value]) => (
+        <Color color={value} name={key} key={key} />
+      ))}
+      {Object.entries(onDark).map(([key, value]) => (
+        <Color color={value} name={`onDark.${key}`} key={key} inverse />
+      ))}
     </Wrapper>
   </Section>
 ));
